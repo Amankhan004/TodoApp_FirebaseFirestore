@@ -55,13 +55,14 @@ class _TodoListPagStateState extends State<TodoListPagState> {
                       navigateToEditPage(context, note);
                     } else {
                       firestoreServices.deleteNote(docID);
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content:
-                         const     Center(child: Text("Task Deleted Successfully")),
+                              Center(child: Text("Task Deleted Successfully")),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          backgroundColor:const Color.fromARGB(255, 247, 77, 65)));
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12),
+                                  topRight: Radius.circular(12.0))),
+                          backgroundColor: Color.fromARGB(255, 247, 77, 65)));
                     }
                   },
                   itemBuilder: (context) {
